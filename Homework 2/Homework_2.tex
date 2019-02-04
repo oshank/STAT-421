@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ, listings}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Oliver Shanklin}  %replace with your name
+\rhead{STAT 421 \\ Spring 2019 \\ Homework 2} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+%Copy the following block of text for each problem in the assignment.
+%\begin{problem}{x.y.z} 
+%Statement of problem goes here (write the problem exactly as it appears in the book).
+%\end{problem}
+%\begin{sol}
+%Write your solution here.
+%\end{sol}
+
+\begin{problem}{1a}
+
+\begin{lstlisting}[language = R]
+
+> sum(xVec == 1)/length(xVec)
+[1] 0.1448551
+> sum(xVec == 2)/length(xVec)
+[1] 0.1298701
+> sum(xVec == 3)/length(xVec)
+[1] 0.5034965
+> sum(xVec == 4)/length(xVec)
+[1] 0.2217782
+
+\end{lstlisting}
+
+\end{problem}
+\begin{problem}{1b}
+
+\begin{lstlisting}[language = R]
+
+> sum(xVec == 1)/length(xVec)
+[1] 0.1568432
+> sum(xVec == 2)/length(xVec)
+[1] 0.1408591
+> sum(xVec == 3)/length(xVec)
+[1] 0.5064935
+> sum(xVec == 4)/length(xVec)
+[1] 0.1958042
+\end{lstlisting}
+
+Changing the initial probabilities for this simulation does have a small influence on the long term outcome of the proportions. Based on my simulation, it looks like it decreasing the proportion of being in state 4 by almost .03.
+\end{problem}
+
+\begin{problem}{2 (Chapter 2, Problem 1)}
+An urn contains five red, three orange, and two blue balls. Two balls are randomly selected. What is the sample space of this experiment? Let $X$ represent the number of orange balls selected. What are the possible values of $X$? Calculate $P\{X = 0\}$.
+
+The sample space is $S\in\{RR, RO, RB, OO, BB, OB\}$.
+
+$R$ is Red, $O$ is Orange, and $B$ is Blue.
+
+The number of orange balls selected is $X\in\{0, 1, 2\}$
+
+In order to get 0 Orange balls in a draw, we have 3 options from the Sample Space, $\{RR, RB, BB\}$
+
+$P(X=0) = P(RR \cup RB \cup BB) = \frac{\binom{5}{2} + \binom{5}{1}\binom{2}{1} + \binom{2}{2}}{\binom{10}{2}} = \frac{21}{45} = \frac{7}{15}$
+
+
+\end{problem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
