@@ -26,12 +26,11 @@ for(i in seq(0,numChains)){
 }
 
 
+palette <- distinctColorPalette(numChains)
 
 plot(xmtx[1,], type = "l", ylim = c(min(xmtx[]), max(xmtx[])), col = palette[1])
 #lines(xmtx[2,], col = "green")
 #lines(xmtx[3,], col = "blue")
-palette <- distinctColorPalette(numChains)
-
 for(i in seq(2, numChains)){
   lines(xmtx[i,], col = palette[i])
 }
