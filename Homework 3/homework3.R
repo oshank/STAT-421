@@ -4,8 +4,8 @@ set.seed(4202019)
 x0 <- 0
 p <- .5
 q <- 1-p
-iter <- 200
-numChains <- 500
+iter <- 1000
+numChains <- 2000
 
 xmtx <- matrix(0,numChains,iter+1)
 
