@@ -55,6 +55,8 @@ round(Pn, 2)
 
 ## 5) Calculate $P(X_4 = 4)$
 
+$P(X_4 = 4) = $
+
 ## 6) Write a program which will simulate the DTMC for a fixed number of time steps. Run the program repeatedly to verify your answer in #5.
 
 ```{r}
