@@ -1,7 +1,7 @@
 ---
 title: "Stat421 3/7"
-author: "Cory DeSantis"
-date: "March 7, 2019"
+author: "Cory DeSantis, Oliver Shanklin"
+date: "March 14, 2019"
 output:
   pdf_document: default
   html_document: default
