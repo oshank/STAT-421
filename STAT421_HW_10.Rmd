@@ -1,0 +1,58 @@
+---
+title: "STAT 421 HW 10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part a)
+
+```{r}
+rateParam = 1/5
+
+time <- 0
+arrivalTimes <- NULL  #not the most efficient way to do this in terms of memory
+while(time < 100)
+{
+	waitTime <- rexp(1, rate = rateParam)
+	time <- time + waitTime
+	arrivalTimes <- c(arrivalTimes, time)
+}
+
+plot(arrivalTimes, seq(1, length(arrivalTimes)), type = 's')
+
+
+```
+
+## Part b)
+
+The distribution of the number of arrivals should be a Poisson(20).
+
+## Part c)
+
+```{r}
+rateParam = 1/5
+
+trials <- list()
+
+time <- 0
+arrivalTimes <- NULL  #not the most efficient way to do this in terms of memory
+while(time < 100)
+{
+	waitTime <- rexp(1, rate = rateParam)
+	time <- time + waitTime
+	arrivalTimes <- c(arrivalTimes, time)
+}
+
+trials <- list(c(trials, arrivalTimes))
+
+
+#plot(arrivalTimes, seq(1, length(arrivalTimes)), type = 's')
+
+
+
+
+```
+

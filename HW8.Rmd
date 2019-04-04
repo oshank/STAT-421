@@ -101,10 +101,9 @@ sum(end_state == 4)/length(end_state)
 
 ```{r}
 
-
 T_count <- numeric()
 
-for(j in seq(1:999999)){
+for(j in seq(1:10000)){
 
   xCur <- 1
   i <- 1
