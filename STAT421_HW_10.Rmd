@@ -21,7 +21,7 @@ while(time < 100)
 	arrivalTimes <- c(arrivalTimes, time)
 }
 
-plot(arrivalTimes, seq(1, length(arrivalTimes)), type = 's')
+#plot(arrivalTimes, seq(1, length(arrivalTimes)), type = 's')
 
 
 ```
@@ -51,24 +51,20 @@ for(i in 1:100){
   arrivalTimes
   trials[[i]] <- arrivalTimes
 }
-#plot(arrivalTimes, seq(1, length(arrivalTimes)), type = 's')
+
 
 ```
 
 
-## Part c)a)
-
 ```{r}
 
-trialsVector <- numeric()
+numtrials <- numeric()
 
-for(i in 1:100){
-  trialsVector <- c(trialsVector, trials[[i]])
+for(i in 1:length(trials)){
+  numtrials[i] <- length(trials[[i]]) 
 }
 
-
-
-hist(trialsVector, freq = F,col="grey")
+hist(numtrials, freq = F,col="grey")
 xlines <-seq(0,100,length.out=100) #seq of x for pdf
 lines(x = xlines,y=dpois(round(xlines),rateParam*100))
 
@@ -79,10 +75,39 @@ lines(x = xlines,y=dpois(round(xlines),rateParam*100))
 
 ```{r}
 
-num0to50 <- sum(trialsVector<=50)
-num50to100 <- sum(trialsVector<=100) - num0to50
+num0to50 <- numeric()
+num50to100 <- numeric()
+
+
+for (i in 1:length(trials)){
+  
+  xvec <- trials[[i]]
+  xsum <- sum(xvec<=50)
+  num0to50[i] <- xsum
+}
+
+for (i in 1:length(trials)){
+  
+  xvec <- trials[[i]]
+  xsum <- sum(xvec>50)-1
+  num50to100[i] <- xsum
+}
+
+
+hist(num0to50, freq = F)
+xlines <-seq(0,50,length.out=50) #seq of x for pdf
+lines(x = xlines,y=dpois(round(xlines),rateParam*50))
+
+
+hist(num50to100, freq = F)
+xlines <-seq(0,50,length.out=50) #seq of x for pdf
+lines(x = xlines,y=dpois(round(xlines),rateParam*50))
+
 
 ```
+
+The distributions should be the same.
+
 
 
 ## Part e)
