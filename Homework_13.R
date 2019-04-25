@@ -55,19 +55,80 @@ for(j in 1:1000){
   
 }
 
+
+plot(listtime[[9]], listsums[[9]], type = "s", xlab = "Time", ylab = "Total Arrivals")
+
+
+
 # E(x(10))
+x10 <- numeric()
 
-
-for(length of list){
+for(i in 1:length(listjump)){
   
+  j <- 1
   
-  for(length of list entry){
+  while(TRUE){
     
-    
+    if(listtime[[i]][j] <= 10){
+      
+      j <- j + 1
+      
+    } else {
+      
+      if(j == 1){
+        x10[i] <- 0
+      } else {
+        x10[i] <- listsums[[i]][j-1]
+      }
+      break;
+      
+    } 
     
   }
   
   
 }
+
+mean(x10)
+var(x10)
+
+
+# P( X(5) = 2)
+
+
+x5 <- numeric()
+
+for(i in 1:length(listjump)){
+  
+  j <- 1
+  
+  while(TRUE){
+    
+    if(listtime[[i]][j] <= 5){
+      
+      j <- j + 1
+      
+    } else {
+      
+      if(j == 1){
+        x5[i] <- 0
+      } else {
+        x5[i] <- listsums[[i]][j-1]
+      }
+      break;
+      
+    } 
+    
+  }
+  
+}
+
+mean(x5 == 2)
+
+
+
+
+
+
 
 
