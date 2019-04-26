@@ -121,7 +121,7 @@ for(i in 1:length(listjump)){
       if(j == 1){
         x5[i] <- 0
       } else {
-        x5[i] <- listsums[[i]][j-1]
+        x5[i] <- listsums[[i]][j-1]c
       }
       break;
       
