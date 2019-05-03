@@ -27,7 +27,7 @@ mu_i <- (1/100)*i^2
 pop_list <- list()
 time_list <- list()
 
-for( j in seq(1:3)){
+for( j in seq(1:1000)){
   
   t <- 0
   i <- 5
@@ -66,8 +66,9 @@ for( j in seq(1:3)){
   
   
 }
-
-plot(time_list[[1]], pop_list[[1]], col = "red", type = "b")
+# plot.new()
+# plot.window( c(0,max( time_list[[1]] ) ) , c(0, max( pop_list[[1]], pop_list[[2]],pop_list[[3]] ) ) )
+plot(time_list[[1]], pop_list[[1]], col = "red", type = "b", xlim = c(0,max( time_list[[1]] ) ), ylim = c(0, max( pop_list[[1]], pop_list[[2]],pop_list[[3]] ) ))
 points(time_list[[2]], pop_list[[2]], col = "blue", type = "b")
 points(time_list[[3]], pop_list[[3]], col = "green", type = "b")
 
@@ -77,6 +78,27 @@ points(time_list[[3]], pop_list[[3]], col = "green", type = "b")
 
 
 ```
+
+## 3)
+
+The realizations in 2 do agree with the explanation in 1. Since the two rates cross at about 25 we should see the population "even" out at around 25 as t goes to infinity.
+
+## 4)
+
+```{r}
+
+max_vec <- NULL
+
+for (i in seq(1:length(pop_list))){
+  
+  max_vec[i] <- (max(pop_list[[i]]) > 40)
+  
+}
+
+mean(max_vec)
+
+```
+
 
 
 
