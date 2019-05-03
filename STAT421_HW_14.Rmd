@@ -66,10 +66,12 @@ for( j in seq(1:1000)){
   
   
 }
-# plot.new()
-# plot.window( c(0,max( time_list[[1]] ) ) , c(0, max( pop_list[[1]], pop_list[[2]],pop_list[[3]] ) ) )
+
+
 plot(time_list[[1]], pop_list[[1]], col = "red", type = "b", xlim = c(0,max( time_list[[1]] ) ), ylim = c(0, max( pop_list[[1]], pop_list[[2]],pop_list[[3]] ) ))
+
 points(time_list[[2]], pop_list[[2]], col = "blue", type = "b")
+
 points(time_list[[3]], pop_list[[3]], col = "green", type = "b")
 
 
