@@ -68,7 +68,11 @@ for( j in seq(1:1000)){
 }
 
 
-plot(time_list[[1]], pop_list[[1]], col = "red", type = "b", xlim = c(0,max( time_list[[1]] ) ), ylim = c(0, max( pop_list[[1]], pop_list[[2]],pop_list[[3]] ) ))
+y_lim = c(0, max( pop_list[[1]], pop_list[[2]],pop_list[[3]] ) )
+
+x_lim = c(0,max( time_list[[1]] ) )
+
+plot(time_list[[1]], pop_list[[1]], col = "red", type = "b", xlim = x_lim, ylim = y_lim)
 
 points(time_list[[2]], pop_list[[2]], col = "blue", type = "b")
 
