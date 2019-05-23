@@ -1,0 +1,132 @@
+---
+title: "Homework 15"
+author: "Oliver Shanklin"
+date: "May 15, 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1)
+
+$E[X(1)] = 0$
+
+$V[X(1)] = 1$, since $t=1$ and $\sigma^2 = 1$
+
+## 2)
+
+Since $X(1) \sim N(0,1)$, we can use pnorm funtions.
+
+$P(-1 < X(1) < 2) = 0.81859$
+
+
+```{r}
+pnorm(2) - pnorm(-1)
+
+```
+
+
+I will write the code for both 3) and 4) in the same block and just use 5 of the realizations for 3).
+
+
+```{r}
+
+realizations <- list()
+# Variance = t*sigma^2, t = 0.02 because the interval to the next time is 0.02
+# and simga^2 = 1
+sig2 <- 0.02
+time_vec <- seq(0,1,0.02)
+
+for( i in seq(1:1000) ){
+  
+  real_vec <- numeric()
+
+  real_vec[1] <- 0
+  
+  
+  for (j in seq(2,51)){
+    
+    real_vec[j] <- real_vec[j-1] + rnorm(1, 0, sqrt(sig2))
+    
+  }
+  
+  realizations[[i]] <- real_vec
+}
+
+
+```
+
+
+## 3)
+
+```{r}
+vec <- c(realizations[[1]],
+         realizations[[2]],
+         realizations[[3]],
+         realizations[[4]],
+         realizations[[5]])
+
+plot(time_vec, realizations[[1]],
+     ylab = "Realization Values",
+     xlab = "Time",
+     lty = 1,
+     type = "l",
+     ylim = c(min(vec), max(vec)))
+
+for (i in seq(2,5)){
+  
+  lines(time_vec, realizations[[i]], lty = i, type = "l")
+  
+}
+
+```
+
+
+## 4)
+
+Making a vector of the last values in the simulation.
+
+```{r}
+
+X_1 <- numeric()
+
+for ( i in seq(1:length(realizations))){
+  
+  X_1[i] <- realizations[[i]][length(realizations[[i]])]
+  
+}
+```
+
+#### a)
+
+$E[X(t)]$
+
+```{r}
+mean(X_1)
+```
+
+#### b)
+
+$V[X(t)]$
+
+```{r}
+var(X_1)
+```
+
+#### c)
+
+```{r}
+# P( X(1) < 2 )
+less_2 <- sum((X_1 < 2))/length(X_1)
+
+# P( X(1) < -1 )
+less_neg1 <- sum((X_1 < -1))/length(X_1)
+
+# P( -1 < X(1) < 2 )
+less_2 - less_neg1
+
+```
+
+
