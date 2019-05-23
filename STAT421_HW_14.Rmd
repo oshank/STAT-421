@@ -27,7 +27,7 @@ mu_i <- (1/100)*i^2
 pop_list <- list()
 time_list <- list()
 
-for( j in seq(1:1000)){
+for( j in seq(1:10000)){
   
   t <- 0
   i <- 5
